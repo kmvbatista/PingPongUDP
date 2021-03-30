@@ -4,6 +4,7 @@ import java.io.*;
 public class Server {
 	private static String responseMessage = "Pong";
 	private static DatagramSocket aSocket;
+	
 	public static void main(String args[]) {
 		try {
 			aSocket = new DatagramSocket(6789);
@@ -13,7 +14,6 @@ public class Server {
 				getMessage(request, buffer);
 				sendMessage(request, aSocket);
 			}
-				// Create a socket on port 6789
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -27,10 +27,10 @@ public class Server {
 	}
 
 	private static void sendMessage(DatagramPacket request, DatagramSocket aSocket) throws IOException, InterruptedException {
-			Thread.sleep(1000);
-			byte[] m = responseMessage.getBytes();
-			DatagramPacket response = new DatagramPacket(m, responseMessage.length(),
-					request.getAddress(), request.getPort());
-			aSocket.send(response);
+		Thread.sleep(1000);
+		byte[] m = responseMessage.getBytes();
+		DatagramPacket response = new DatagramPacket(m, responseMessage.length(),
+				request.getAddress(), request.getPort());
+		aSocket.send(response);
 	}
 }

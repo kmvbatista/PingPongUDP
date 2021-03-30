@@ -23,11 +23,11 @@ public class Client {
 	}
 
 	private static void sendMessage() throws IOException, InterruptedException {
-			Thread.sleep(1000);
-			byte[] m = msg.getBytes();
-			DatagramPacket request = new DatagramPacket(m, msg.length(),
-					hostAddress, serverPort);
-			datagramSocket.send(request);
+		Thread.sleep(1000);
+		byte[] m = msg.getBytes();
+		DatagramPacket request = new DatagramPacket(m, msg.length(),
+				hostAddress, serverPort);
+		datagramSocket.send(request);
 	}
 
 	private static void getResponse() throws IOException {
